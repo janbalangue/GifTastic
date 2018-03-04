@@ -1,27 +1,18 @@
-button {
-    background-color: #005500;
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 5px 10px;
+* {
+    margin: 5px;
+    max-width: 100%;
+}
+
+figcaption {
+    margin-left: 10px;
+}
+.btn {
     margin: 5px;
 }
-figure {
-    height: 200px;
-    max-width: 250px;
-    padding: 5px;
-    margin: 20px;
-    float: left;
-    position: relative;
+#search {
+    position: fixed;
+    right: 0;
 }
-img {
-    margin: 0 20px;
-}
-figcaption {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    padding: 20px;
-    position: absolute;
-    top: -30px;
-    left: 5px;
-    text-align: center;
+@media (max-width: 640px) {
+
 }
