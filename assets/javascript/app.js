@@ -29,11 +29,11 @@ $("button").on("click", function () {
     queryURL = "http://api.giphy.com/v1/gifs/search?q=" + instrument + "&api_key=GadGwZbNKmV1tMe4DAb8TnfN3EOoaE4w";
     $.ajax({ url: queryURL, method: "GET" }).then(function (response) {
         for (var i = 0; i < 10; i++) {
-            if ((response.data[i].rating === "g" || response.data[i].rating === "pg") && response.data[i].images.fixed_height_still.width < 500) {
+            if ((response.data[i].rating === "g" || response.data[i].rating === "pg") && response.data[i].images.fixed_height.width < 500) {
                 newGifDiv[gifId] = $("<div>");
                 newGifDiv[gifId].addClass("gif-image float-left");
                 newGif = $("<figure>");
-                newGif.append('<img class="float-left" src="' + response.data[i].images.fixed_height_still.url + '">');
+                newGif.append('<img class="float-left" src="' + response.data[i].images.fixed_height.url + '">');
                 
                 newGifDiv[gifId].attr("data-name", gifId);
                 // creates unique numerical data-name attribute and assigns it to newGif
