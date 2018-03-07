@@ -5,10 +5,10 @@ var newGifDiv = [];
 var newGif;
 var newGifRating;
 var gifId = 0;
-var gifPlay;
-var gifStill;
+
 
 function drawButtons() {
+    // creates new div with buttons and puts it in topics section
     var newButtonDiv = $("<div>");
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>");
@@ -31,14 +31,22 @@ $("button").on("click", function () {
         for (var i = 0; i < 10; i++) {
             if ((response.data[i].rating === "g" || response.data[i].rating === "pg") && response.data[i].images.fixed_height_still.width < 500) {
                 newGifDiv[gifId] = $("<div>");
-                newGifDiv[gifId].addClass("float-left");
+                newGifDiv[gifId].addClass("gif-image float-left");
                 newGif = $("<figure>");
-                newGif.append('<img class="gif-image float-left" src="' + response.data[i].images.fixed_height_still.url + '">');
-                newGif.attr("data-name", gifId);
+                newGif.append('<img class="float-left" src="' + response.data[i].images.fixed_height_still.url + '">');
+                
+                newGifDiv[gifId].attr("data-name", gifId);
+                // creates unique numerical data-name attribute and assigns it to newGif
                 console.log(gifId);
-                newGif.attr("gif-still", response.data[i].images.fixed_height_still.url);
-                newGif.attr("gif-play", response.data[i].images.fixed_height.url);
-
+                
+                newGifDiv[gifId].attr("gif-still", response.data[i].images.fixed_height_still.url);
+                // // // saves url for still image into newGif attribute gif-still
+                console.log(response.data[i].images.fixed_height_still.url);
+                
+                newGifDiv[gifId].attr("gif-play", response.data[i].images.fixed_height.url);
+                console.log(response.data[i].images.fixed_height.url);
+                // // //saves url for playing gif into newGif attribute gif-play
+                
                 newGifRating = $("<figcaption>Rating: " + response.data[i].rating + "</figcaption>");
                 console.log(newGifRating);
                 newGif.append(newGifRating);
@@ -50,22 +58,24 @@ $("button").on("click", function () {
     });
 });
 
+// creates new instrument button when clicking search button
 $("#search").on("click", function (event) {
     event.preventDefault();
-    var newInstrument = $(".form-control").val().trim();
+    var newInstrument = $("#instrument-search").val();
     if (newInstrument !== "") {
         topics.push(newInstrument);
         drawButtons();
     }
 })
 
-$("#gifs").on("click", function () {
-    gifId = $(this).attr("data-name");
-    gifPlay = $(this).attr("gif-play");
-    gifStill = $(this).attr("gif-still");
+// // click image to toggle between gif and still image
+$("#gifs").on("click", ".gif-image", function () {
+    var gifId = $(this).attr("data-name");
+    var gifPlay = $(this).attr("gif-play");
+    var gifStill = $(this).attr("gif-still");
     if ($(this).attr("src") === gifPlay) {
         $(this).attr("src", gifStill);
     } else if ($(this).attr("src") === gifStill) {
-        $(this.attr("src", gifPlay));
+        $(this).attr("src", gifPlay);
     }
 });
