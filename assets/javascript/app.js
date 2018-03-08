@@ -11,7 +11,7 @@ function drawButtons() {
     console.log(topics);
     for (var i = 0; i < topics.length; i++) {
         var button = $('<button>');
-        if (topics[i].substring(0, 6) === "movie ") { // create a movie button
+        if (topics[i].substring(0, 6).toLowerCase() === "movie ") { // create a movie button
             button.addClass("btn movie-button btn-primary");
             var buttonTitle = topics[i].substring(6,);
             console.log(buttonTitle);
