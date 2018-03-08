@@ -1,4 +1,4 @@
-var topics = ["piano", "cello", "guitar", "bass guitar", "drums", "violin", "viola", "double bass", "trumpet", "trombone", "oboe", "flute", "synthesizer", "drum machine", "turntable", "theremin", "harp", "saxophone", "sitar", "dulcimer", "xylophone"];
+var topics = ["piano", "cello", "guitar", "bass guitar", "drums", "violin", "viola", "harmonica", "trumpet", "trombone", "oboe", "flute", "synthesizer", "drum machine", "turntable", "theremin", "harp", "saxophone", "sitar", "dulcimer", "xylophone"];
 var newInstrument;
 var queryURL;
 var newGifDiv;
