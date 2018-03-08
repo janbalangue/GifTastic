@@ -1,20 +1,20 @@
 * {
-    margin: 5px;
+    margin: 0;
     max-width: 100%;
 }
 body {
-    background-image: url("../images/light_grey.png");
-    background-repeat: repeat;
 }
-
-figcaption {
-    margin-left: 10px;
+p{
+    margin-left: 5px;
+}
+img {
+    margin: 0 5px;
 }
 .btn {
     margin: 5px;
 }
 #search {
-    position: fixed;
+    position: relative;
     right: 0;
 }
 @media (max-width: 640px) {
