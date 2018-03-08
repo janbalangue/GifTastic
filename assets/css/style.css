@@ -13,10 +13,12 @@ img {
 .btn {
     margin: 5px;
 }
-#search {
-    position: relative;
+#search-display {
+    position: fixed;
     right: 0;
+    overflow: auto;
 }
-@media (max-width: 640px) {
-
+#gifs {
+    top: 100px;
+    overflow:auto;
 }
