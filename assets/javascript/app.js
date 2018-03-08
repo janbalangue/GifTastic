@@ -61,7 +61,7 @@ $("#topics-view").on("click", ".instrument-button", function (event) {
     event.preventDefault();
     instrument = $(this).attr("data-name");
     console.log(instrument);
-    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + instrument + "&api_key=GadGwZbNKmV1tMe4DAb8TnfN3EOoaE4w";
+    queryURL = "https://api.giphy.com/v1/gifs/search?q=" + instrument + "&api_key=GadGwZbNKmV1tMe4DAb8TnfN3EOoaE4w";
     getGifs(queryURL);
 
 });
@@ -71,7 +71,7 @@ $("#topics-view").on("click", ".movie-button", function (event) {
     event.preventDefault();
     var movieTitle = $(this).attr("data-name");
     console.log(movieTitle);
-    queryURL = "http://www.omdbapi.com/?&apikey=e7956eef&t=" + movieTitle;
+    queryURL = "https://www.omdbapi.com/?&apikey=e7956eef&t=" + movieTitle;
     getMoviePoster(queryURL);
 });
 
