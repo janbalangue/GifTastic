@@ -2,6 +2,9 @@
     margin: 0;
     max-width: 100%;
 }
+body {
+    background-image: url("../images/dust_scratches.png");
+}
 p{
     margin-left: 5px;
 }
@@ -12,30 +15,30 @@ p{
     margin: 5px;
 }
 #topics-view {
-    position: absolute;
+    position: relative;
 
 }
 #search-display {
-    position: absolute;
-    top: 150px;
+    position: relative;
+    top: 0;
     right: 0;
 
 }
 #gifs {
-    position: absolute;
-    top: 150px;
+    position: relative;
+    top: 0;
 
 }
 @media all and (max-width: 640px){
     img {
-        position: relative;
+        position: static;
     }
     #topics-view {
-        position: relative;
+        position: static;
     }
     #search-display {   
-        position: relative;
-        top: 10px;
+        position: absolute;
+        top: 0; 
         overflow: auto;
     }
     #gifs {

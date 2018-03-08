@@ -11,14 +11,14 @@ function drawButtons() {
     console.log(topics);
     for (var i = 0; i < topics.length; i++) {
         var button = $('<button>');
-        if (topics[i].substring(0, 6) === "movie ") {
+        if (topics[i].substring(0, 6) === "movie ") { // create a movie button
             button.addClass("btn movie-button");
             var buttonTitle = topics[i].substring(6,);
             console.log(buttonTitle);
             button.text(buttonTitle);
             button.attr("data-name", buttonTitle);  
         } else {
-            button.addClass("btn instrument-button");
+            button.addClass("btn instrument-button"); // create an instrument button
             button.text(topics[i]);
             button.attr("data-name", topics[i]);  
         }
