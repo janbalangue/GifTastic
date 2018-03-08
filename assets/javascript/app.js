@@ -2,8 +2,7 @@ var topics = ["piano", "cello", "guitar", "bass guitar", "drums", "violin", "vio
 var newInstrument;
 var queryURL;
 var newGifDiv = [];
-// var newGif;
-// var newGifRating;
+
 var gifId = 0;
 
 
@@ -11,9 +10,9 @@ function drawButtons() {
     // creates new div with buttons and puts it in topics section
     var newButtonDiv = $("<div>");
     for (var i = 0; i < topics.length; i++) {
-        var button = $("<button>");
+        var button = $('<button>');
         button.attr("type", "button");
-        button.addClass("btn btn-primary");
+        button.addClass("btn instrument-button btn-primary");
         button.attr("data-name", topics[i]);
         button.text(topics[i]);
         newButtonDiv.append(button);
@@ -24,8 +23,7 @@ function drawButtons() {
 drawButtons();
 
 // event handler for blue instrument buttons
-$("button").on("click", function (e) {
-    e.preventDefault();
+$(".instrument-button").on("click", function () {
     instrument = $(this).attr("data-name");
     console.log(instrument);
     queryURL = "http://api.giphy.com/v1/gifs/search?q=" + instrument + "&api_key=GadGwZbNKmV1tMe4DAb8TnfN3EOoaE4w";
@@ -38,10 +36,6 @@ $("button").on("click", function (e) {
                 newGifDiv.append('<img class="float-left gif" id=' + gifId + ' data-state="still" src="' + response.data[i].images.fixed_height_still.url + '" data-still="' + response.data[i].images.fixed_height_still.url + '" data-animate="' + response.data[i].images.fixed_height.url + '">');
                 console.log(response.data[i].images.fixed_height.url);
                 console.log(response.data[i].images.fixed_height_still.url);
-                // newGifRating = $("<figcaption>Rating: " + response.data[i].rating + "</figcaption>");
-                // console.log(newGifRating);
-                // newGif.append(newGifRating);
-                // newGifDiv[gifId].append(newGif);
                 $("#gifs").prepend(newGifDiv);
                 gifId++;
             }
@@ -50,14 +44,12 @@ $("button").on("click", function (e) {
 });
 
 // creates new instrument button when clicking search button
-$(".form-inline").on("click", "#search", function () {
-    newInstrument = $("#instrument-search").val().trim();
-    if (newInstrument !== undefined) {
-        topics.push(newInstrument);
-        drawButtons();
-    }
-
-});
+$("#searchBtn").on("click", function(event) {
+    event.preventDefault();
+    var topic = $("#instrument-search").val().trim();
+    topics.push(topic);
+    drawButtons();
+  });
 
 // // click image to toggle between gif and still image
 $("#gifs").on("click", ".gif", function () {
