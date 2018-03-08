@@ -1,6 +1,6 @@
 # GifTastic
 
-With **GifTastic**, you can search for gifs, then display and animate them with a click!
+With **GifTastic**, you can search for gifs, then display and animate them with a click! This is a mobile-responsive app, so feel free to try it on a phone or tablet!
 
 * You can search for gifs. Type into the search text box and then click **Add button**. The button will immediately be added.
 * To display gifs, click one of the gif buttons at the top.
