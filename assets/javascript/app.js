@@ -1,7 +1,7 @@
 var topics = ["piano", "cello", "guitar", "bass guitar", "drums", "violin", "viola", "double bass", "trumpet", "trombone", "oboe", "flute", "synthesizer", "drum machine", "turntable", "theremin", "harp", "saxophone", "sitar", "dulcimer", "xylophone"];
 var newInstrument;
 var queryURL;
-var newGifDiv = [];
+var newGifDiv;
 
 
 
@@ -11,9 +11,18 @@ function drawButtons() {
     console.log(topics);
     for (var i = 0; i < topics.length; i++) {
         var button = $('<button>');
-        button.addClass("btn instrument-button");
-        button.attr("data-name", topics[i]);
-        button.text(topics[i]);
+        if (topics[i].substring(0, 6) === "movie ") {
+            button.addClass("btn movie-button");
+            var buttonTitle = topics[i].substring(6,);
+            console.log(buttonTitle);
+            button.text(buttonTitle);
+            button.attr("data-name", buttonTitle);  
+        } else {
+            button.addClass("btn instrument-button");
+            button.text(topics[i]);
+            button.attr("data-name", topics[i]);  
+        }
+              
         $("#topics-view").append(button);
     }
 }
@@ -34,16 +43,36 @@ function getGifs(queryURL) {
         }
     });
 }
-
+// retrieve movie poster from omdb api
+function getMoviePoster(queryURL) {
+    $.ajax({ url: queryURL, method: "GET" }).done(function (response) {
+        newGifDiv = $("<div>");
+        newGifDiv.append("<p>Rating: " + response.Rated + "</p>");
+        newGifDiv.addClass("float-left");
+        console.log(response);
+        newGifDiv.append('<img class="float-left movie-poster" src="' + response.Poster + '">');
+        $("#gifs").prepend(newGifDiv);
+    });
+}
 drawButtons();
 
-// event handler for blue instrument buttons
+// event handler for instrument buttons
 $("#topics-view").on("click", ".instrument-button", function (event) {
     event.preventDefault();
     instrument = $(this).attr("data-name");
     console.log(instrument);
     queryURL = "http://api.giphy.com/v1/gifs/search?q=" + instrument + "&api_key=GadGwZbNKmV1tMe4DAb8TnfN3EOoaE4w";
     getGifs(queryURL);
+
+});
+
+// event handler for movie buttons
+$("#topics-view").on("click", ".movie-button", function (event) {
+    event.preventDefault();
+    var movieTitle = $(this).attr("data-name");
+    console.log(movieTitle);
+    queryURL = "http://www.omdbapi.com/?&apikey=e7956eef&t=" + movieTitle;
+    getMoviePoster(queryURL);
 });
 
 // creates new instrument button when clicking search button

@@ -2,23 +2,44 @@
     margin: 0;
     max-width: 100%;
 }
-body {
-}
 p{
     margin-left: 5px;
 }
-img {
+.movie-poster, .gif {
     margin: 0 5px;
 }
 .btn {
     margin: 5px;
 }
+#topics-view {
+    position: absolute;
+
+}
 #search-display {
-    position: fixed;
+    position: absolute;
+    top: 150px;
     right: 0;
-    overflow: auto;
+
 }
 #gifs {
-    top: 100px;
-    overflow:auto;
+    position: absolute;
+    top: 150px;
+
+}
+@media all and (max-width: 640px){
+    img {
+        position: relative;
+    }
+    #topics-view {
+        position: relative;
+    }
+    #search-display {   
+        position: relative;
+        top: 10px;
+        overflow: auto;
+    }
+    #gifs {
+        top: 100px;
+    }
+
 }
