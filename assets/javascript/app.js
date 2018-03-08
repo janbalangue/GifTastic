@@ -18,7 +18,7 @@ function drawButtons() {
             button.text(buttonTitle);
             button.attr("data-name", buttonTitle);  
         } else {
-            button.addClass("btn instrument-button"); // create an instrument button
+            button.addClass("btn instrument-button btn-light"); // create an instrument button
             button.text(topics[i]);
             button.attr("data-name", topics[i]);  
         }
