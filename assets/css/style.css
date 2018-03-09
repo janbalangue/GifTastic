@@ -9,6 +9,9 @@
     p{
         margin-left: 5px;
     }
+    img {
+        position: static;
+    }
     .movie-poster, .gif {
         margin: 0 5px;
     }
@@ -16,11 +19,11 @@
         margin: 5px;
     }
     #topics-view {
-        position: relative;
+        position: static;
 
     }
     #search-display {
-        position: relative;
+        position: absolute;
         top: 0;
         right: 0;
 
