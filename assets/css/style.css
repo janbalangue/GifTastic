@@ -49,7 +49,7 @@
     #topics-view {
         position: static;
     }
-    button {
+    .btn {
         margin: 5px;
     }
     #search-display {   
