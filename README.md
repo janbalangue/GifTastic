@@ -10,6 +10,6 @@ With **GifTastic**, you can search for gifs, then display and animate them with 
 
 *Note: movie posters will not animate when you click on them.*
 
-*Have fun!* Here is the app link: https://computeruser88.github.io/GifTastic/
+*Have fun!* Here is the app link: https://janbalangue.github.io/GifTastic/
 
 Technologies used: Twitter Bootstrap, jQuery, HTML5, CSS3, Ajax, JSON, Media Queries, Giphy API, OMDB API
